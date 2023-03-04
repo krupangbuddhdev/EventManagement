@@ -1,0 +1,109 @@
+<%- include ("header_e"); -%>
+    <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button
+    {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    </style>
+    <section  class="login" style="margin: 30px; padding-top: 100px;" >
+        <center>
+          <body style="margin-top: 0px; margin-left: 10px;">
+            <div class="container">
+              <div data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-8 col-xl-8" >
+                    <div class="card text-black" style="background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+                    background-blend-mode: normal,color-burn;"> 
+                        <div class="card-body p-md-6">
+                            <div class="row justify-content-center">
+                                <u><p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Edit Event</p></u>
+
+                                    <form action="/edit/<%= event._id %> " method="POST" id="event-form" enctype="multipart/form-data" style="display: inline-block; text-align: left;"> <!-- autocomplete="off" -->
+                                        <!-- <input type="hidden" name="_id" value="{{event._id}}"> -->
+                                        <div class="form-group">
+                                            <label>Event Name</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Event Name" value="<%= event.name %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Event Description</label>
+                                            <input type="text" class="form-control" name="desc" placeholder="Event Description" value="<%= event.desc %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Event Image</label>
+                                            <input type="file" class="form-control" name="image" placeholder="Event Image" accept="image/*">
+                                            <img src="/<%= event.image %> " class="img-thumbnail mt-1" width="100">
+                                        </div>
+                                        <input type="hidden" name="old_image" value="<%= event.image %> ">
+                                        <div class="form-group">
+                                            <label>Event Type</label>
+                                            <select class="form-control" name="type" placeholder="Type of the event" value="<%= event.type %>">
+                                                <option value="" disabled selected hidden>Event Type</option>    
+                                                <option value="Technical">Technical</option>
+                                                <option value="Non-Technical">Non-Technical</option>
+                                                <option value="Seminar">Seminar</option>
+                                                <option value="Webinar">Webinar</option>
+                                                <option value="Workshop">Workshop</option>
+                                            </select>    
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Days of event</label>
+                                            <input type="number" class="form-control" name="days" placeholder="Event Days" value="<%= event.days %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Number of sub-events</label>
+                                            <input type="number" class="form-control" name="subEvents" placeholder="Sub Events" value="<%= event.subEvents %>">
+                                        </div>
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label>Event Date</label>
+                                            <input type="date" class="form-control" name="date" placeholder="Event Date" value="<%= event.date %>">
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                              <label>Event Timings</label>
+                                              <input type="text" class="form-control" name="time" placeholder="Event Timings" value="<%= event.time %>">
+                                          </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label style="margin-right: 50px">Is Event Paid?</label>
+                                            <input type="radio" class="form-check-input" name="paid" placeholder="Event Venue" value="<%= event.paid %>" >
+                                            <label style="margin-right: 30px"> Yes </label>
+                                            <input type="radio" class="form-check-input" name="paid" placeholder="Event Venue" value="<%= event.paid %>" >
+                                            <label> No </label>
+                                        </div> -->
+                                        <div class="form-row">
+                                          <div class="form-group col-md-6">
+                                            <label>Event Venue</label>
+                                            <input type="text" class="form-control" name="venue" placeholder="Event Venue" value="<%= event.venue %>">
+                                          </div>
+                                          <div class="form-group col-md-6">
+                                            <label>Event Price</label>
+                                            <input type="number" class="form-control" name="price" placeholder="Event Price" value="<%= event.price %>">
+                                          </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label>College Name</label>
+                                                <input type="text" class="form-control" name="clg" placeholder="College Name" value="<%= event.clg %>">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Organizing Committee</label>
+                                                <input type="text" class="form-control" name="comm" placeholder="Committee Name" value="<%= event.comm %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="padding-top: 10px;">
+                                            <button type="submit" class="btn btn-info" ><i class="fa fa-database"></i> Submit</button>
+                                            <!-- <a class="btn btn-secondary" href="/event/list"><i class="fa fa-list-alt"></i> View All</a> -->
+                                        </div>
+                                    </form>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+              </div>
+            </body>
+    </center>
+  </section>
+
+<%- include ("footer"); -%>

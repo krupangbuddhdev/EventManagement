@@ -1,0 +1,112 @@
+<%- include ("header_list"); -%>
+
+    <style>
+     pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+}
+
+      .footer {
+        position: relative;
+        bottom: 0;
+      }
+    </style>
+
+    <body style="margin-top: 100px; ">
+      <h3 style="position: absolute; right:100px;">
+        <a class="btn btn-primary" href=" /event"
+          ><i class="fa fa-plus"></i> Create New</a
+        >
+      </h3>
+      <br>
+      <h2>
+        <center><b><u><%= title %> </b></u></center>
+      </h2>
+
+      <div class="row" id="events" style="margin-left: 100px;">
+        <% if (events != '') { %> <% events.forEach((row, index) => { %>
+
+        <div class="col-lg-6 mt-5">
+          <span><img src="<%= row.image %>" width="330" height="250" /></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Name:</span>
+          <span style="font-size: 15px"><%= row.name %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Description:</span>
+          <span style="font-size: 15px"><pre><%= row.desc %></pre></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Date:</span>
+          <span style="font-size: 15px"><pre><%= row.date %></pre></span><br />
+          <span style="font-weight: bold; font-size: 18px">College Name:</span>
+          <span style="font-size: 15px"><%= row.clg %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Committee Name:</span>
+          <span style="font-size: 15px"><%= row.comm %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Type:</span>
+          <span style="font-size: 15px"><%= row.type %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Days:</span>
+          <span style="font-size: 15px"><%= row.days %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Sub Events:</span>
+          <span style="font-size: 15px"><%= row.subEvents %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Timings:</span>
+          <span style="font-size: 15px"><%= row.time %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Price:</span>
+          <span style="font-size: 15px"><%= row.price %></span><br />
+          <span style="font-weight: bold; font-size: 18px">Event Venue:</span>
+          <span style="font-size: 15px"><%= row.venue %></span><br />
+          <div class="d-flex mb-4 mt-2">
+            <button
+              style="
+                background-color: #4154f1;
+                color: #fff;
+                border: 0px #4154f1;
+                border-radius: 4px;
+                padding: 8px 18px;
+              "
+            >
+              <a
+                href="/edit/<%= row._id %>"
+                style="color: #ffff; padding-right: 10px"
+                ><i
+                  class="fa fa-pencil fa-lg"
+                  aria-hidden="true"
+                  style="color: #ffffff; padding-right: 10px"
+                ></i
+                >Edit</a
+              >
+            </button>
+
+            <button
+              class="ml-2"
+              style="
+                background-color: #4154f1;
+                color: #fff;
+                border: 0px #4154f1;
+                border-radius: 4px;
+                padding: 8px 18px;
+              "
+            >
+              <a
+                href="/delete/<%= row._id %>"
+                onclick="return confirm('Are you sure to delete this record ?');"
+                style="color: #ffff; padding-right: 10px"
+                ><i
+                  class="fa fa-trash fa-lg"
+                  aria-hidden="true"
+                  style="color: #fff; padding-right: 10px"
+                ></i
+                >Delete</a
+              >
+            </button>
+
+          </div>
+
+        </div>
+        <% }) %>
+        <% } else { %>
+        <h1 class="text-center text-secondary mt-5">No events found</h1>
+        <% } %>
+      </div>
+    </body>
+
+    <%- include ("footer"); -%>
+  </head>
+</html>

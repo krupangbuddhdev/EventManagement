@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Event Management</title>
+    <meta content="" name="description" />
+
+    <meta content="" name="keywords" />
+
+    <link href="/public/img/event_favicon.png" rel="icon" />
+
+    <link href="/public/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <link href="/public/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/public/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/public/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/public/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/public/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="/public/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="/public/css/style.css" rel="stylesheet" />
+
+    <body>
+      <!-- ======= Header ======= -->
+      <header id="header" class="header fixed-top">
+        <div
+          class="container-fluid container-xl d-flex align-items-center justify-content-between"
+        >
+          <a href="/home" class="logo d-flex align-items-center">
+            <img src="/public/img/logo.png" alt="Error.." />
+            <span>Event Management</span>
+          </a>
+
+          <nav id="navbar" class="navbar">
+            <h3>
+              <ul>
+                <li><a class="nav-link scrollto" href="/home1">Home</a></li>
+                <li><a class="nav-link scrollto" href="/about1">About</a></li>
+                <!-- <li><a class="nav-link scrollto" href="/event">Event</a></li> -->
+                <li><a class="nav-link scrollto" href="/eventView">Event View</a></li>
+                <li>
+                  <a class="nav-link scrollto" href="/contact1">Contact</a>
+                </li>
+                <li><a class="getstarted scrollto" href="/logout">Logout</a></li>
+                <!-- <li><a class="getstarted scrollto" href="/login">Login</a></li>
+                <li>
+                  <a class="getstarted scrollto" href="/register">Register</a>
+                </li> -->
+              </ul>
+            </h3>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <!-- .navbar -->
+        </div>
+      </header>
+      <!-- End Header -->
+    </body>
+  </head>
+</html>
+
+
+<style>
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button
+  {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<section  class="login" style="margin: 30px; padding-top: 100px;" >
+
+<center>
+  <body style="margin-top: 0px; margin-left: 10px;">
+
+    <div class="container">
+      <div data-aos="fade-up" data-aos-delay="600">
+        <div class="col-lg-8 col-xl-8" >
+            <% if (message) { %>
+                <div class="alert alert-dismissable fade show alert-<%= message.type %>" role="alert">
+                  <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <strong><%= message.message %></strong>
+                </div>
+                <% } %>
+            <div class="card text-black" style="background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+            background-blend-mode: normal,color-burn;"> 
+                <div class="card-body p-md-6" >
+                    <div class="row justify-content-center">
+                        <u><p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 "><%= title %> </p></u>
+
+              <form action="/add" method="POST" id="add-form" enctype="multipart/form-data"  style="display: inline-block; text-align: left; "> <!-- autocomplete="off" -->
+                  <!-- <input type="hidden" name="_id" value="{{event._id}}"> -->
+                  <div class="form-group">
+                      <label>Student Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Student Name" value="" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Email ID</label>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email ID" value="" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="number" class="form-control" name="phone" placeholder="Mobile Number" value="" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" class="form-control" name="ename" placeholder="Event Name" value="" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Payment Done Image</label>
+                      <input type="file" class="form-control" name="image" placeholder="Ss of payment" accept="image/*" value="" required>
+                  </div>
+                  <div class="form-group">
+                    <center>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Submit</button>
+                    </center>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+  </center>
+</section>
+
+<%- include ("footer"); -%>

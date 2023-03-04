@@ -1,0 +1,6 @@
+id - rzp_test_hZIZ6oRyxU3UIs
+secret - XB5EJwb0BpAekLkwaniH4ms0
+
+button - <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_K6GHEST2ql0Ai5" async> </script> </form>
+
+https://rzp.io/l/SWZYKH9V

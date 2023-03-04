@@ -1,0 +1,81 @@
+<%- include ("header"); -%>
+
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$( "#form2" ).submit(function(event) {
+				event.preventDefault();
+				$.ajax({
+					type: 'POST',
+					url: '/forgetpass',
+					data: $('#form2').serialize(),
+					dataType: "json",
+					success: function(response){
+						//alert("a");
+						//console.log(response.Success);
+						$('#form2')[0].reset();
+						//alert("abc");
+						document.getElementById("check").innerHTML=response.Success;
+						setTimeout(function(){
+							document.getElementById("check").innerHTML="";
+						},3000);
+						if (response.Success=="Password changed!") {
+							document.getElementById("aa").click();
+						};
+					},
+					error: function() {
+					}
+				})
+			});
+		});
+	</script>
+
+<center>
+	<section class="login" style="padding-top: 70px">
+		<div data-aos="fade-up" data-aos-delay="600">
+		
+	<div class="col-lg-8 col-xl-8" style="margin-top: 100px;">
+
+		<div class="card text-black" style="border-radius: 50px; border: 2px solid #555555; background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+		background-blend-mode: normal,color-burn;">
+		
+			<div>
+				<u><p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Change Password</p></u>
+
+				<form id="form2" method="post">
+					
+					<div class="inside">
+						<input type="text" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+						<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+						<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+						<input type="submit" value="Change" class="btn btn-success mb-2">
+					</div>
+
+				</form>
+
+			</div>
+		
+			<div  class="mssg bg-danger">
+				<span id="check"></span>
+				</div>
+				<div id="LangTable"><a href="/profile" id="aa"></a>
+				</div>
+				<div class="mb-2"><span>Login? </span><a href="/login" style="color:red">Click here</a></div>
+			</div>
+			<div id="LangTable"><a href="/login" id="aa"></a>
+			</div>
+			
+		</div>
+
+	</div>
+</div>
+</section>
+</center>
+
+</body>
+<%- include ("footer"); -%>

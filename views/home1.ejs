@@ -1,0 +1,117 @@
+<% if (role == 'faculty') { %>
+    <%- include ("header_f") -%>
+<% } else { %>
+    <%- include ("header_s") -%>
+<% } %>
+
+<body>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <% if (message) { %>
+            <div class="alert alert-dismissable fade show alert-<%= message.type %>" role="alert">
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong><%= message.message %></strong>
+            </div>
+          <% } %>
+          <h1
+            data-aos="fade-up"
+            style="font-family: 'Times New Roman', Times, serif"
+          >
+            College Event Management
+          </h1>
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="400"
+            style="text-align: justify"
+          >
+            • There are various technical and non-technical societies in the
+            colleges which also arranges variety of events. But the problem is
+            the event arrangement and promotion involves lots of paper work
+            which results in wastage of paper once the event is over. <br />•
+            Here you can add event and register in the event .
+          </h2>
+          <% if (role == 'faculty') { %>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a
+                  href="/list"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                >
+                  <span>See Events</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          <% } else { %>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a
+                  href="/eventView"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                >
+                  <span>See Events</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          <% } %>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="/public/img/img_1.png" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+          <div
+            class="col-lg-6 d-flex flex-column justify-content-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="content">
+              <h3>Who We Are</h3>
+              <h2>Event management is an application of</h2>
+              <p>
+                manage event registration smoothly. Through this application you
+                can be able to register the various events like technical and
+                non-technical events and also you can able to see the events of
+                your college as well as other colleges also.
+              </p>
+              <div class="text-center text-lg-start">
+                <a
+                  href="about"
+                  class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"
+                >
+                  <span>Know More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-6 d-flex align-items-center"
+            data-aos="zoom-out"
+            data-aos-delay="200"
+          >
+            <img src="/public/img/about_1.jpg" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+
+  </main>
+  <!-- End #main -->
+</body>
+
+<%- include ("footer"); -%>

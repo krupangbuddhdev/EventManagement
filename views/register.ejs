@@ -1,0 +1,98 @@
+<%- include ("header_registration"); -%>
+  
+<style>
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button
+	{
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+</style>
+
+<body>
+	<center>
+	<section  class="login" style=" padding-top: 50px;" >
+        <div data-aos="fade-up" data-aos-delay="600">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<div>
+		
+		<div class="col-lg-8 col-xl-8" style="margin-top: 100px;">
+
+			<% if (message) { %>
+				<div class="alert alert-dismissable fade show alert-<%= message.type %>" role="alert">
+					<button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+					<strong><%= message.message %></strong>
+				</div>
+			  <% } %>
+
+			<div class="card text-black" style="border-radius: 50px; border: 2px solid #555555; background: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+			background-blend-mode: normal,color-burn;">
+			
+				<div>
+					<u><p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 ">Register</p></u>
+
+					<form id="form" action="/user" method="post" class="mx-2">
+
+						<div class="inside">
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-person-check-fill" id="i"></i>
+							<input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-envelope-fill" id="i"></i>
+							<input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-people-fill" id="i"></i>
+							<select name="role" placeholder="Select Role" class="form-control" required="">
+								<option value="role" disabled selected hidden>Select role</option>
+								<option value="faculty">Faculty</option>
+								<option value="student">Student</option>
+							</select>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-person-badge-fill" id="i"></i>
+							<input type="number" name="enroll" placeholder="Student / Faculty ID" required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-mortarboard-fill" id="i"></i>
+							<input type="text" name="college" placeholder="College Name" required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-phone-fill" id="i"></i>
+							<input type="number" name="mobile" placeholder="Mobile No." required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-lock-fill" id="i"></i>
+							<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+							</div>
+							<div class="d-flex flex-row align-items-center mb-4">
+								<i class="bi bi-key-fill" id="i"></i>
+							<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+							</div>
+							<input type="submit" value="Register" class="btn btn-primary mb-2">
+						</div>
+
+					</form>
+				</div>
+			
+				<div class="mssg bg-danger">
+					<span id="check"></span>
+				</div>
+				<div class="mb-2">
+					<span>Already Registered! <a href="/login" style="color:red">Login</a></span>
+				</div>
+				<!-- <div id="LangTable"><a href="/login" id="aa"></a>
+				</div> -->
+			</div>
+
+		</div>
+	</div>
+</section>
+</center>
+</body>
+<%- include ("footer"); -%>
